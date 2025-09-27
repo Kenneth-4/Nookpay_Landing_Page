@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download our app for Android or install as PWA on iOS">
+    <title>Download NookPay App</title>
+    <link rel="icon" href="images/nook.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F36514',
+                        secondary: '#763116',
+                        accent: '#e8eef7',
+                        textdark: '#333',
+                        textlight: '#666'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        card: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        .modal.hidden .modal-content {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="font-sans text-textdark bg-white leading-relaxed">
+    <div class="w-[90%] max-w-6xl mx-auto py-8">
+        <header class="flex items-center mb-12 py-8">
+            <div class="w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-white flex items-center justify-center mr-5 overflow-hidden">
+                <img src="images/nook.png" alt="NookPay Logo" class="w-full h-full object-contain p-2">
+            </div>
+            <div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl text-primary font-bold leading-tight">Download NookPay App</h1>
+                <p class="text-md sm:text-lg md:text-xl text-textlight font-medium">Order and Pay ahead for dine-in and pickup</p>
+            </div>
+        </header>
+        
+        <main>
+            <section class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-1 bg-white rounded-xl p-6 md:p-8 shadow-card flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" id="android-card">
+                    <h2 class="text-xl md:text-2xl text-primary mb-4 font-semibold">Android Users</h2>
+                    <p class="mb-6 text-textlight">Download our app directly to your device</p>
+                    <div class="flex flex-col items-center">
+                        <button id="showApkModalBtn" class="mt-auto inline-flex items-center justify-center bg-primary text-white px-6 py-3 rounded-full font-medium transition-colors duration-300 hover:bg-secondary shadow-card">
+                            Download APK
+                            <div class="ml-2 w-6 h-6 flex items-center justify-center">
+                                <img src="images/android.png" alt="Android Logo" class="w-full h-full object-contain">
+                            </div>
+                        </button>
+                        <span class="text-sm text-textlight mt-2">Version 1.0.0</span>
+                    </div>
+                </div>
+                
+                <div class="flex-1 bg-white rounded-xl p-6 md:p-8 shadow-card flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" id="ios-card">
+                    <h2 class="text-xl md:text-2xl text-primary mb-4 font-semibold">iOS Users</h2>
+                    <p class="mb-6 text-textlight">Install as a Progressive Web App</p>
+                    <div class="w-full space-y-4 mt-1">
+                        <button id="showModalBtn" class="w-full flex items-center bg-accent p-4 rounded-xl cursor-pointer hover:bg-accent/80 transition-colors">
+                            <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm mr-3">1</div>
+                            <div class="text-primary mr-3">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-sm font-medium">Visit our app in Safari</div>
+                        </button>
+                        <div class="flex items-center bg-accent p-4 rounded-xl">
+                            <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm mr-3">2</div>
+                            <div class="text-primary mr-3">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-sm font-medium">Tap the Share icon</div>
+                        </div>
+                        <div class="flex items-center bg-accent p-4 rounded-xl">
+                            <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm mr-3">3</div>
+                            <div class="text-primary mr-3">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-sm font-medium">Choose "Add to Home Screen"</div>
+                        </div>
+                        <div class="flex items-center bg-accent p-4 rounded-xl">
+                            <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm mr-3">4</div>
+                            <div class="text-primary mr-3">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-sm font-medium">Tap "Add" to confirm</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="mt-12 text-center text-textlight text-sm">
+            <p>&copy; 2025 NookPay App. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- iOS Safari Modal -->
+    <div id="browserModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible">
+        <div class="modal-content bg-white rounded-xl p-6 max-w-md mx-4 shadow-lg">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-primary">Important Note</h3>
+                <button id="closeModalBtn" class="text-textlight hover:text-textdark">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mb-6">
+                <p class="mb-3">This installation method only works on iOS devices using the Safari browser.</p>
+                <p class="mb-3">If you're currently using a desktop browser or a different mobile browser, you'll need to:</p>
+                <ul class="list-disc pl-5 mb-3">
+                    <li>Visit this page using Safari on your iPhone or iPad</li>
+                    <li>Then follow the installation steps</li>
+                </ul>
+                <div class="bg-accent p-3 rounded-lg text-sm">
+                    <p class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"></path></svg> Progressive Web Apps provide an app-like experience without requiring App Store installation.</p>
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <button id="cancelModalBtn" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-accent transition-colors">Cancel</button>
+                <a href="https://www.nook-pay.com/" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors">Proceed Anyway</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- APK Installation Modal -->
+    <div id="apkModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible">
+        <div class="modal-content bg-white rounded-xl p-6 max-w-md mx-4 shadow-lg">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-primary">Before You Install</h3>
+                <button id="closeApkModalBtn" class="text-textlight hover:text-textdark">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mb-6">
+                <p class="mb-3">You're about to download the NookPay Android app (APK file).</p>
+                <p class="mb-3">Please note the following:</p>
+                <ul class="list-disc pl-5 mb-3">
+                    <li>Your browser may warn you about downloading APK files</li>
+                    <li>You'll need to allow installation from "Unknown Sources" in your device settings</li>
+                    <li>This is the official NookPay app (version 1.0.0)</li>
+                </ul>
+                <div class="bg-accent p-3 rounded-lg text-sm">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div>
+                            <span>The APK file is </span>
+                            <span class="font-semibold">89 MB</span>
+                            <span> and requires Android 6.0 or higher.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <button id="cancelApkModalBtn" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-accent transition-colors">Cancel</button>
+                <button id="downloadApkBtn" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors flex items-center">
+                    <span id="downloadBtnText">Download Now</span>
+                    <svg id="downloadSpinner" class="w-5 h-5 ml-2 animate-spin hidden" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <svg id="downloadCheck" class="w-5 h-5 ml-2 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // iOS Safari Modal functionality
+        const modal = document.getElementById('browserModal');
+        const showModalBtn = document.getElementById('showModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelModalBtn = document.getElementById('cancelModalBtn');
+        
+        function showModal() {
+            modal.classList.remove('opacity-0', 'invisible');
+            setTimeout(() => {
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            }, 10);
+        }
+        
+        function hideModal() {
+            modal.classList.add('opacity-0', 'invisible');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+        }
+        
+        showModalBtn.addEventListener('click', showModal);
+        closeModalBtn.addEventListener('click', hideModal);
+        cancelModalBtn.addEventListener('click', hideModal);
+        
+        // Close modal if clicked outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+        
+        // APK Modal functionality
+        const apkModal = document.getElementById('apkModal');
+        const showApkModalBtn = document.getElementById('showApkModalBtn');
+        const closeApkModalBtn = document.getElementById('closeApkModalBtn');
+        const cancelApkModalBtn = document.getElementById('cancelApkModalBtn');
+        const downloadApkBtn = document.getElementById('downloadApkBtn');
+        const downloadBtnText = document.getElementById('downloadBtnText');
+        const downloadSpinner = document.getElementById('downloadSpinner');
+        const downloadCheck = document.getElementById('downloadCheck');
+        
+        function showApkModal() {
+            apkModal.classList.remove('opacity-0', 'invisible');
+            setTimeout(() => {
+                apkModal.querySelector('.modal-content').classList.remove('scale-95');
+            }, 10);
+        }
+        
+        function hideApkModal() {
+            apkModal.classList.add('opacity-0', 'invisible');
+            apkModal.querySelector('.modal-content').classList.add('scale-95');
+        }
+        
+        showApkModalBtn.addEventListener('click', showApkModal);
+        closeApkModalBtn.addEventListener('click', hideApkModal);
+        cancelApkModalBtn.addEventListener('click', hideApkModal);
+        
+        // Close modal if clicked outside
+        apkModal.addEventListener('click', function(e) {
+            if (e.target === apkModal) {
+                hideApkModal();
+            }
+        });
+        
+        // Handle APK download with animation
+        downloadApkBtn.addEventListener('click', function() {
+            // Show downloading animation
+            downloadBtnText.textContent = "Downloading...";
+            downloadSpinner.classList.remove('hidden');
+            
+            // Create a link to download the APK file
+            const downloadLink = document.createElement('a');
+            downloadLink.href = 'downloads/nookpay-ordering.apk';
+            downloadLink.download = 'nookpay-ordering.apk';
+            
+            // Simulate download process
+            setTimeout(() => {
+                // Hide spinner, show checkmark
+                downloadSpinner.classList.add('hidden');
+                downloadCheck.classList.remove('hidden');
+                downloadBtnText.textContent = "Downloaded!";
+                
+                // Trigger download
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                // Close modal after a delay
+                setTimeout(() => {
+                    hideApkModal();
+                    
+                    // Reset button state after modal is closed
+                    setTimeout(() => {
+                        downloadCheck.classList.add('hidden');
+                        downloadBtnText.textContent = "Download Now";
+                    }, 300);
+                }, 1000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html> 
